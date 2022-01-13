@@ -18,11 +18,9 @@ The link to the heroku:
 
 -----
 ## Usage
-The user will be able to add expenses and deposits to their budget with or without a connection. If the user enters transactions offline, the total should be updated when they're brought back online
+Logged in users can set up accounts and save book items to be viewed later for either purchase or to check out at the local library
 
 
-Image shows example of transaction working away from network.
-![Image of app](https://user-images.githubusercontent.com/85147307/148717895-9821d777-36ef-4d69-8fb1-c1175c52a608.png)
 
 -----
 ## Tech Used 
