@@ -19,8 +19,12 @@ const startServer = async () => {
   await server.start();
   // integrate our Apollo server with the Express application as middleware
   server.applyMiddleware({ app });
+
+// Look for this console log to know if playground is discoverable
   console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
 };
+
+// This starts the Apollo Server
 startServer();
 
 app.use(express.urlencoded({ extended: true }));
@@ -31,9 +35,10 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
 
-// will eventually turn off
+// will eventually turn off when converted
 app.use(routes);
 
+// this is be toggled off to get playground working
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
