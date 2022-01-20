@@ -4,6 +4,7 @@ import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap
 import { getMe, deleteBook } from '../utils/API';
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
+// add queries and mutation and remove getMe and deletebook api
 
 const SavedBooks = () => {
   const [userData, setUserData] = useState({});
