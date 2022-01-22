@@ -8,7 +8,7 @@ const resolvers = {
         if (context.user) {
             const userData = await User.findOne({ _id: context.user._id })
             .select('-__v -password')
-            .populate('savedBooks');
+            // .populate('savedBooks');
 
             return userData;
         }
@@ -32,6 +32,12 @@ const resolvers = {
         const token = signToken(user);
         return { token, user };
     },
+    addUser: async (parent, args) => {
+        const user = await User.create(args);
+        const token = signToken(user);
+  
+        return { token, user };
+    }
   }
 };
 
