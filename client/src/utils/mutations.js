@@ -26,4 +26,22 @@ export const ADD_USER = gql`
 `;
 
 //SAVE_BOOK
+export const SAVE_BOOK = gql`
+mutation saveBook($book: bookInput) {
+  saveBook(book: $book) {
+    username
+    email
+    bookCount
+    savedBooks {
+      authors
+      description
+      bookId
+      image
+      link
+      title
+    }
+  }
+}
+`;
+
 //REMOVE_BOOK
