@@ -12,15 +12,15 @@ import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
   // const [userData, setUserData] = useState({});
-  const { loading, error, data } = useQuery(GET_ME);
+  const { loading, data } = useQuery(GET_ME);
+  console.log(data)
   const [removeBook] = useMutation(REMOVE_BOOK);
   // use this to determine if `useEffect()` hook needs to run again
   // const userData = Object.keys(userData).length;
   const userData = data?.me || {};
 
   // Anything being stored in data?
-  console.log(data)
-  console.log(error)
+  console.log(userData)
 
   // useEffect(() => {
   //   const getUserData = async () => {
@@ -63,7 +63,7 @@ const SavedBooks = () => {
       // upon success, remove book's id from localStorage
       removeBookId(bookId);
     } catch (err) {
-      console.error(error);
+      console.error(err);
     }
   };
 

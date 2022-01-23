@@ -1,12 +1,11 @@
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
-
-const { authMiddleware } = require('./utils/auth');
-const { typeDefs, resolvers } = require('./schemas');
 const path = require('path');
-const db = require('./config/connection');
+const { typeDefs, resolvers } = require('./schemas');
 
-const routes = require('./routes');
+const db = require('./config/connection');
+const { authMiddleware } = require('./utils/auth');
+// const routes = require('./routes');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -30,7 +29,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // will eventually turn off when converted
-app.use(routes);
+// app.use(routes);
 
 console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
 

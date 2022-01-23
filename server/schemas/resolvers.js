@@ -1,5 +1,5 @@
-const { User } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
+const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -8,12 +8,11 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
         .select("-__v -password")
-        // .populate('savedBooks');
-
+        .populate('savedBooks');
         return userData;
       }
-      throw new AuthenticationError("Not logged in");
-    },
+      throw new AuthenticationError("Weight has nothing to do with it!");
+    }
   },
   Mutation: {
     login: async (parent, { email, password }) => {
@@ -43,7 +42,7 @@ const resolvers = {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { savedBooks: book } },
-          { new: true, runValidators: true }
+          { new: true}
         );
         return updatedUser;
       }
@@ -54,7 +53,7 @@ const resolvers = {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $pull: { savedBooks: { bookId: bookId } } },
-          { new: true, runValidators: true  }
+          { new: true }
         );
         return updatedUser;
       }
