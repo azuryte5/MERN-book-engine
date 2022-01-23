@@ -7,8 +7,8 @@ const resolvers = {
     me: async (parent, args, context) => {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
-        .select("-__v -password")
-        .populate('savedBooks');
+        // .select("-__v -password")
+        // .populate('savedBooks');
         return userData;
       }
       throw new AuthenticationError("Weight has nothing to do with it!");
@@ -48,11 +48,11 @@ const resolvers = {
       }
       throw new AuthenticationError("Only logged in users can save!");
     },
-    removeBook: async (parent, { bookId }, context) => {
+    removeBook: async (parent, args , context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedBooks: { bookId: bookId } } },
+          { $pull: { savedBooks: { bookId: args.bookId } } },
           { new: true }
         );
         return updatedUser;

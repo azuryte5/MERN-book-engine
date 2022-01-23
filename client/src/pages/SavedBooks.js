@@ -20,7 +20,7 @@ const SavedBooks = () => {
   const userData = data?.me || {};
 
   // Anything being stored in data?
-  console.log(userData)
+  console.log(data)
 
   // useEffect(() => {
   //   const getUserData = async () => {

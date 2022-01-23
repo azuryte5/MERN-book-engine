@@ -72,7 +72,8 @@ const SearchBooks = () => {
       return false;
     }
     // does token work?, yep
-    console.log(token)
+    console.log("Token works:  " + token)
+  
 
     try {
       const response = await saveBook({
