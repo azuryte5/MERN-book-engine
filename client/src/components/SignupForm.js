@@ -1,5 +1,5 @@
 import React, { useState, 
-  useEffect 
+  // useEffect 
 } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
@@ -16,15 +16,17 @@ const SignupForm = () => {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
-  const [addUser, { error}] = useMutation(ADD_USER);
+  const [addUser
+    // , { error }
+  ] = useMutation(ADD_USER);
 
-  useEffect(() => {
-    if (error) {
-      setShowAlert(true);
-    } else {
-      setShowAlert(false);
-    }
-  }, [error]);
+  // useEffect(() => {
+  //   if (error) {
+  //     setShowAlert(true);
+  //   } else {
+  //     setShowAlert(false);
+  //   }
+  // }, [error]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -49,11 +51,11 @@ const SignupForm = () => {
       // }
 
       // const { token, user } = await response.json();
-      // console.log(data);
+      console.log(data);
       Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
-      // setShowAlert(true);
+      setShowAlert(true);
     }
 
     setUserFormData({

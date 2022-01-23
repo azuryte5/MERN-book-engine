@@ -7,4 +7,10 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
   useFindAndModify: false,
 });
 
+// switch to drop database and reset
+// mongoose.connect('mongodb://localhost/googlebooks',function(){
+//     /* Drop the DB */
+//     mongoose.connection.db.dropDatabase();
+// });
+
 module.exports = mongoose.connection;
