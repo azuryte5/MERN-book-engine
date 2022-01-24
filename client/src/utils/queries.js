@@ -1,6 +1,6 @@
-import { gql } from 'graphql-tag';
+import  gql from 'graphql-tag';
 
-export const GET_ME = gql`
+export const QUERY_ME = gql`
 {
     me {
         _id
@@ -10,10 +10,10 @@ export const GET_ME = gql`
         savedBooks {
             bookId
             authors
-            title
             description
-            link
             image
+            link
+            title
         }
     }
 }
