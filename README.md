@@ -27,8 +27,6 @@ Playground works with login, adding users and adding/removing books
 Login and Add user works, local storage used for storing book ids and token.
 ![searchbooks](https://user-images.githubusercontent.com/85147307/150715342-ff481366-b01c-477e-aa62-7a238b7894c5.png)
 
-Presently, working on an unknown issue. Many hours exploring and looking up docs to why this error is happening. Might be related to cache. Query_Me was not finding working query from backend.
-![Savedbooks](https://user-images.githubusercontent.com/85147307/150715516-c26a40e9-6573-4a76-88c7-b3c5ff3396fb.png)
 -----
 ## Tech Used 
 - Mongo DB
@@ -75,7 +73,7 @@ WHEN I click on the Save button on a book
 WHEN I click on the option to see my saved books
 [ ] THEN I am presented with all of the books I have saved to my account, each featuring the book’s title, author, description, image, and a link to that book on the Google Books site and a button to remove a book from my account
 WHEN I click on the Remove button on a book
-[  ] THEN that book is deleted from my saved books list
+[ ] THEN that book is deleted from my saved books list
 WHEN I click on the Logout button
 [☑️ ] THEN I am logged out of the site and presented with a menu with the options Search for Books and Login/Signup and an input field to search for books and a submit button  
 ```
