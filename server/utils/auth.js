@@ -2,14 +2,14 @@ const jwt = require('jsonwebtoken');
 
 // set token secret and expiration date
 //Will need to change and hide this
-const secret = 'IAmYourDensity';
-const expiration = '2h';
+const secret = 'youaremydensity';
+const expiration = "2h";
 
 module.exports = {
   signToken: function ({ username, email, _id }) {
     const payload = { username, email, _id };
 
-    return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+    return jwt.sign({ data: payload }, secret, { expiresIn: expiration  });
   },
   authMiddleware: function ({ req }) {
     //allows token to be sent via req.body, req.query or headers
